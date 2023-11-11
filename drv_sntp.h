@@ -14,8 +14,7 @@ extern "C"
 {
 #endif /* __cplusplus */
 
-#include <sdkconfig.h>
-#if CONFIG_DRV_SNTP_USE
+
 
 /* *****************************************************************************
  * Header Includes
@@ -51,10 +50,8 @@ extern "C"
 /* *****************************************************************************
  * Function Prototypes
  **************************************************************************** */
-void drv_sntp_initialize_sntp(sntp_sync_time_cb_t sync_time_cb);
+void drv_sntp_init(sntp_sync_time_cb_t sync_time_cb);
 void drv_sntp_set_time_manual(bool input);
-
-#endif //#if CONFIG_DRV_SNTP_USE
 
 #ifdef __cplusplus
 }

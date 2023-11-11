@@ -13,8 +13,6 @@
  **************************************************************************** */
 #include "drv_sntp.h"
 
-#if CONFIG_DRV_SNTP_USE
-
 #include <stdbool.h>
 #include "esp_log.h"
 #include "esp_sntp.h"
@@ -55,7 +53,7 @@
 sntp_sync_time_cb_t sync_time_cb_request = NULL;
 
 
-void drv_sntp_initialize_sntp(sntp_sync_time_cb_t sync_time_cb)
+void drv_sntp_init(sntp_sync_time_cb_t sync_time_cb)
 {
     sync_time_cb_request = sync_time_cb;
 
@@ -99,10 +97,8 @@ void drv_sntp_set_time_manual(bool input)
     {
         if (sntp_enabled() == 0)
         {
-            drv_sntp_initialize_sntp(sync_time_cb_request);
+            drv_sntp_init(sync_time_cb_request);
         }
 
     }
 }
-
-#endif //#if CONFIG_DRV_SNTP_USE
