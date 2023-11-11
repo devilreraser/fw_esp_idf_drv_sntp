@@ -1,0 +1,7 @@
+menu "Component drv_sntp Configuration"
+
+    config DRV_SNTP_USE
+        bool "Use drv_sntp"
+        default y
+    
+endmenu
